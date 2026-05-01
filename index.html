@@ -120,11 +120,6 @@
             opacity: 0.9;
         }
         
-        .btn.loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
         .coming-soon {
             opacity: 0.6;
             pointer-events: none;
@@ -173,7 +168,7 @@
                     <li>Kleinunternehmer-Limit</li>
                     <li>Excel-Import</li>
                 </ul>
-                <button class="btn" onclick="checkout('steuer-tracker')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/28EaEWfPa68f1Eoe4qbQY0a" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 2 -->
@@ -188,7 +183,7 @@
                     <li>DATEV-Export</li>
                     <li>PDF-Download</li>
                 </ul>
-                <button class="btn" onclick="checkout('rechnungs-generator')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/fZueVcauQ2W382M8K6bQY0b" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 3 -->
@@ -203,7 +198,7 @@
                     <li>Hashtag-Strategie</li>
                     <li>Posting-Zeiten</li>
                 </ul>
-                <button class="btn" onclick="checkout('content-kalender')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/5kQdR8auQbsz4QA4tQbQY0c" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 4 -->
@@ -218,7 +213,7 @@
                     <li>Gewinnziel-Analyse</li>
                     <li>Export-Funktion</li>
                 </ul>
-                <button class="btn" onclick="checkout('preiskalkulator')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/5kQ6oG5awbszdn68K6bQY0d" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 5 -->
@@ -233,7 +228,7 @@
                     <li>Editierbar</li>
                     <li>Support</li>
                 </ul>
-                <button class="btn" onclick="checkout('vertragsvorlagen')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/eVq5kCauQ54b6YI4tQbQY0e" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 6 -->
@@ -248,7 +243,7 @@
                     <li>Prognosen</li>
                     <li>Automatische Updates</li>
                 </ul>
-                <button class="btn" onclick="checkout('finanz-dashboard')">Jetzt kaufen</button>
+                <a href="https://buy.stripe.com/4gM14mcCY68fgzi8K6bQY0f" class="btn">Jetzt kaufen</a>
             </div>
             
             <!-- Produkt 7 -->
@@ -317,38 +312,5 @@
             <p>Digitale Produkte für erfolgreiche Freelancer in Deutschland</p>
         </footer>
     </div>
-
-    <script>
-        async function checkout(productId) {
-            const button = event.target;
-            button.classList.add('loading');
-            button.textContent = 'Wird geladen...';
-            
-            try {
-                const response = await fetch('/api/checkout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ productId })
-                });
-                
-                const data = await response.json();
-                
-                if (data.url) {
-                    window.location.href = data.url;
-                } else {
-                    alert('Fehler beim Erstellen des Checkouts. Bitte versuchen Sie es später erneut.');
-                    button.classList.remove('loading');
-                    button.textContent = 'Jetzt kaufen';
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
-                button.classList.remove('loading');
-                button.textContent = 'Jetzt kaufen';
-            }
-        }
-    </script>
 </body>
 </html>

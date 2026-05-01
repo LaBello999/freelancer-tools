@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "products/*/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/products/(.*)",
+      "dest": "/products/$1/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "STRIPE_PUBLIC_KEY": "@stripe_public_key",
+    "STRIPE_SECRET_KEY": "@stripe_secret_key"
+  }
+}

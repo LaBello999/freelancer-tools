@@ -54,7 +54,6 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
         }
         
         .product-card:hover {
@@ -114,10 +113,16 @@
             cursor: pointer;
             width: 100%;
             text-align: center;
+            font-size: 1em;
         }
         
         .btn:hover {
             opacity: 0.9;
+        }
+        
+        .btn.loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
         
         .coming-soon {
@@ -168,7 +173,7 @@
                     <li>Kleinunternehmer-Limit</li>
                     <li>Excel-Import</li>
                 </ul>
-                <a href="https://buy.stripe.com/eVqcN4eL6cwDfve0dAbQY00" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('steuer-tracker')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 2 -->
@@ -183,7 +188,7 @@
                     <li>DATEV-Export</li>
                     <li>PDF-Download</li>
                 </ul>
-                <a href="https://buy.stripe.com/8x228q1Yk1RZ82M1hEbQY01" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('rechnungs-generator')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 3 -->
@@ -198,7 +203,7 @@
                     <li>Hashtag-Strategie</li>
                     <li>Posting-Zeiten</li>
                 </ul>
-                <a href="https://buy.stripe.com/fZubJ08mI8gn5UEd0mbQY02" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('content-kalender')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 4 -->
@@ -213,7 +218,7 @@
                     <li>Gewinnziel-Analyse</li>
                     <li>Export-Funktion</li>
                 </ul>
-                <a href="https://buy.stripe.com/9B6cN4byU54baaU1hEbQY03" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('preiskalkulator')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 5 -->
@@ -228,7 +233,7 @@
                     <li>Editierbar</li>
                     <li>Support</li>
                 </ul>
-                <a href="https://buy.stripe.com/cNieVc9qMfIP1EobWibQY04" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('vertragsvorlagen')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 6 -->
@@ -243,7 +248,7 @@
                     <li>Prognosen</li>
                     <li>Automatische Updates</li>
                 </ul>
-                <a href="https://buy.stripe.com/cNi4gyeL64070Ake4qbQY05" class="btn" target="_blank">Jetzt kaufen</a>
+                <button class="btn" onclick="checkout('finanz-dashboard')">Jetzt kaufen</button>
             </div>
             
             <!-- Produkt 7 -->
@@ -312,5 +317,38 @@
             <p>Digitale Produkte für erfolgreiche Freelancer in Deutschland</p>
         </footer>
     </div>
+
+    <script>
+        async function checkout(productId) {
+            const button = event.target;
+            button.classList.add('loading');
+            button.textContent = 'Wird geladen...';
+            
+            try {
+                const response = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ productId })
+                });
+                
+                const data = await response.json();
+                
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    alert('Fehler beim Erstellen des Checkouts. Bitte versuchen Sie es später erneut.');
+                    button.classList.remove('loading');
+                    button.textContent = 'Jetzt kaufen';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+                button.classList.remove('loading');
+                button.textContent = 'Jetzt kaufen';
+            }
+        }
+    </script>
 </body>
 </html>

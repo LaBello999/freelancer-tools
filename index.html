@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Tools - Digitale Produkte für Freelancer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            padding-top: 40px;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .product-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .product-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            font-size: 2em;
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            color: #666;
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .product-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        
+        .badge.soon {
+            background: #999;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Freelancer Tools</h1>
+            <p>Digitale Produkte für erfolgreiche Freelancer</p>
+        </header>
+        
+        <div class="products-grid">
+            <!-- Produkt 1 -->
+            <div class="product-card">
+                <span class="badge">BESTSELLER</span>
+                <h3>Steuer-Tracker 2026</h3>
+                <p>Automatische UStVa-Verfolgung, Vorauszahlungsplaner und Kleinunternehmer-Limit-Warnung</p>
+                <div class="product-price">47€</div>
+                <ul class="product-features">
+                    <li>UStVa-Tracker</li>
+                    <li>Vorauszahlungen</li>
+                    <li>Kleinunternehmer-Limit</li>
+                    <li>Excel-Import</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 2 -->
+            <div class="product-card">
+                <span class="badge">NEU</span>
+                <h3>Rechnungs-Generator Pro</h3>
+                <p>Professionelle Rechnungsvorlagen mit automatischer Nummerierung und DATEV-Export</p>
+                <div class="product-price">37€</div>
+                <ul class="product-features">
+                    <li>50+ Vorlagen</li>
+                    <li>Auto-Nummerierung</li>
+                    <li>DATEV-Export</li>
+                    <li>PDF-Download</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 3 -->
+            <div class="product-card">
+                <span class="badge">POPULAR</span>
+                <h3>Content-Kalender</h3>
+                <p>30-Tage Social Media Kalender mit vorgeplanten Posts und Grafiken</p>
+                <div class="product-price">27€</div>
+                <ul class="product-features">
+                    <li>30 Posts</li>
+                    <li>Grafiken</li>
+                    <li>Hashtag-Strategie</li>
+                    <li>Posting-Zeiten</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 4 -->
+            <div class="product-card">
+                <span class="badge">STARTER</span>
+                <h3>Preiskalkulator</h3>
+                <p>Berechne deinen perfekten Stundensatz basierend auf Kosten und Gewinnziel</p>
+                <div class="product-price">17€</div>
+                <ul class="product-features">
+                    <li>Automatische Berechnung</li>
+                    <li>Kostenplanung</li>
+                    <li>Gewinnziel-Analyse</li>
+                    <li>Export-Funktion</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 5 -->
+            <div class="product-card">
+                <span class="badge">LEGAL</span>
+                <h3>Vertragsvorlagen</h3>
+                <p>5 rechtssichere Vertragsvorlagen für Freelancer (Dienstleistung, NDA, etc.)</p>
+                <div class="product-price">37€</div>
+                <ul class="product-features">
+                    <li>5 Vorlagen</li>
+                    <li>Rechtssicher</li>
+                    <li>Editierbar</li>
+                    <li>Support</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 6 -->
+            <div class="product-card">
+                <span class="badge">PREMIUM</span>
+                <h3>Finanz-Dashboard</h3>
+                <p>Umfassendes Finanz-Dashboard mit Gewinn/Verlust, Cashflow und Prognosen</p>
+                <div class="product-price">67€</div>
+                <ul class="product-features">
+                    <li>Gewinn/Verlust</li>
+                    <li>Cashflow-Analyse</li>
+                    <li>Prognosen</li>
+                    <li>Automatische Updates</li>
+                </ul>
+                <a href="#" class="btn">Jetzt kaufen</a>
+            </div>
+            
+            <!-- Produkt 7 -->
+            <div class="product-card">
+                <span class="badge soon">COMING SOON</span>
+                <h3>Steuer-Masterclass</h3>
+                <p>5-Modul Video-Kurs: Steuern, Buchführung, Optimierung und mehr</p>
+                <div class="product-price">97€</div>
+                <ul class="product-features">
+                    <li>5 Module</li>
+                    <li>Video-Lektionen</li>
+                    <li>Workbooks</li>
+                    <li>Lifetime Access</li>
+                </ul>
+                <button class="btn coming-soon">Bald verfügbar</button>
+            </div>
+            
+            <!-- Produkt 8 -->
+            <div class="product-card">
+                <span class="badge soon">COMING SOON</span>
+                <h3>Notion PM-Template</h3>
+                <p>Komplettes Projekt-Management System in Notion mit Kanban, Timeline und mehr</p>
+                <div class="product-price">29€</div>
+                <ul class="product-features">
+                    <li>Kanban-Board</li>
+                    <li>Timeline-View</li>
+                    <li>Automatisierung</li>
+                    <li>Dokumentation</li>
+                </ul>
+                <button class="btn coming-soon">Bald verfügbar</button>
+            </div>
+            
+            <!-- Produkt 9 -->
+            <div class="product-card">
+                <span class="badge soon">COMING SOON</span>
+                <h3>Email-Vorlagen</h3>
+                <p>50 professionelle Email-Vorlagen für Kundenakquise, Follow-up und mehr</p>
+                <div class="product-price">19€</div>
+                <ul class="product-features">
+                    <li>50 Vorlagen</li>
+                    <li>Editierbar</li>
+                    <li>Kategorisiert</li>
+                    <li>Copy-Paste Ready</li>
+                </ul>
+                <button class="btn coming-soon">Bald verfügbar</button>
+            </div>
+            
+            <!-- Produkt 10 -->
+            <div class="product-card">
+                <span class="badge soon">COMING SOON</span>
+                <h3>LinkedIn Optimizer</h3>
+                <p>Optimiere dein LinkedIn-Profil für maximale Sichtbarkeit und Kundenakquise</p>
+                <div class="product-price">39€</div>
+                <ul class="product-features">
+                    <li>Profil-Audit</li>
+                    <li>Optimierungs-Guide</li>
+                    <li>Headline-Vorlagen</li>
+                    <li>Post-Strategie</li>
+                </ul>
+                <button class="btn coming-soon">Bald verfügbar</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Freelancer Tools. Alle Rechte vorbehalten.</p>
+            <p>Digitale Produkte für erfolgreiche Freelancer in Deutschland</p>
+        </footer>
+    </div>
+</body>
+</html>
